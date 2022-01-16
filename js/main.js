@@ -31,14 +31,20 @@ slider.onblur = (()=> {
 });
 
 registerButton.addEventListener('click', ()=> {
+    const savedData = JSON.parse(localStorage.getItem('data')) || []
     var value = slider.value;
     noteText = note.value
-    console.log(noteText)
+    var date = new Date()
+    var today = date.getUTCDate() + "/" + (date.getUTCMonth()+1) + "/" + date.getFullYear()
+    var thisTime = date.getUTCHours();
+    console.log(thisTime)
     var dataForSave = {
+        today,
         noteText,
         value
     }
-
-    localStorage.setItem('data', JSON.stringify(dataForSave))
+    const updateData = [...savedData, dataForSave]
+    localStorage.setItem('data', JSON.stringify(updateData))
+    note.value = ''
 
 })
