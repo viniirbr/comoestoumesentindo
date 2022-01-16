@@ -1,5 +1,6 @@
 body {
-    padding: 0 40px;
+    padding: 0 20px;
+    margin: 0;
 }
 
 main {
@@ -13,18 +14,66 @@ main {
     width: 60%;
 }
 
+.title-main {
+    margin: 0 auto;
+}
+
+.title__description {
+    font-size: 1.3rem;
+    width: 60%;
+    margin: 0 auto;
+}
+
+.range {
+    width: 40%;
+    background: red;
+    border-radius: 10px;
+    padding: 30px 10px;
+    margin: 20px 0;
+}
+
+.field {
+    display: flex;
+    align-items: center;
+}
+
+.sliderValue-div span {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    transform: translateX(-50%) scale(0);
+    transform-origin: bottom;
+    transition: transform 0.3s ease-in-out;
+    top: 190px;
+    z-index: 2;
+}
+
+.sliderValue-div span.show {
+    transform: translateX(-50%) scale(1);
+}
+
 .slider {
-    width: 30%;
+    width: 100%;
     height: 50px;
+}
+
+input {
+    height: 0.1px;
+    width: 100%;
+    background: #ddd;
+    border-radius: 5px;
+    outline: none;
+    border: none;
 }
 
 .note-input {
     background-image: url('../img/note-background.png');
-    background-size: 420px 400px;
+    background-size: 420px 380px;
     background-repeat: no-repeat;
+    outline: none;
     height: 350px;
     width: 370px;
-    padding: 60px 40px 20px 20px;
+    padding: 60px 40px 0 20px;
     font-size: 1.5rem;
     border: none;
     resize: none;
@@ -32,10 +81,3 @@ main {
     line-height: 30px;
 }
 
-.note-input:hover {
-    border: none;
-}
-
-.note-input:active {
-    border: none;
-}

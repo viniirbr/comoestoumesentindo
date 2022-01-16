@@ -13,13 +13,23 @@
             <h1 class="title__main">Como estou hoje?</h1>
             <h2 class="title__description">Selecione seu estado de humor e, se quiser, escreva uma nota detalhando melhor como está se sentindo.</h2>
         </div>
+
+        <div class="range">
+            <div class="sliderValue-div">
+                <span class="sliderValue" style="font-size: 2rem;">&#128528</span>
+            </div>
+            <div class="field">
+                <span class="value min" style="font-size: 2rem;">&#128557</span>
+                <input type="range" min="1" max="200" value="25" class="slider">
+                <span class="value max" style="font-size: 2rem;">&#129321</span>
+            </div>
+        </div>
       
-        <input type="range" min="1" max="50" value="25" class="slider">
-        <textarea maxlength="390" class="note-input"></textarea>
+        <textarea maxlength="351" class="note-input"></textarea>
         <button class="button">Registrar humor</button>
         <button class="button">Como eu estava me sentindo a um tempo atrás?</button>
     </main>
 
-    
+    <script src="js/main.js"></script>
 </body>
 </html>
