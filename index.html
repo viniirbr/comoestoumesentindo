@@ -9,28 +9,40 @@
 </head>
 <body>
     <main class="main">
-        <div class="title">
-            <h1 class="title__main">Como estou hoje?</h1>
-            <h2 class="title__description">Selecione seu estado de humor e, se quiser, escreva uma nota detalhando melhor como está se sentindo.</h2>
-        </div>
-
-        <div class="range">
-            <div class="sliderValue-div">
-                <span class="sliderValue" style="font-size: 2rem;">&#128528</span>
+        <section class="previous-notes">
+            <span class="close-button"><i class="far fa-times-circle" close-button></i></span>
+            <ul class="notes-list">
+            </ul>
+        </section>
+        <section class="main-section">
+            <div class="title">
+                <h1 class="title__main">Como estou hoje?</h1>
+                <h2 class="title__description">Selecione seu estado de humor e, se quiser, escreva uma nota detalhando melhor como está se sentindo.</h2>
             </div>
-            <div class="field">
-                <span class="value min" style="font-size: 1.5rem;">&#128557</span>
-                <input type="range" min="20" max="180" value="100" class="slider">
-                <span class="value max" style="font-size: 1.5rem;">&#129321</span>
+    
+            <div class="range">
+                <div class="sliderValue-div">
+                    <span class="sliderValue" style="font-size: 2rem;">&#128528</span>
+                </div>
+                <div class="field">
+                    <span class="value min" style="font-size: 1.5rem;">&#128557</span>
+                    <input type="range" min="20" max="180" value="100" class="slider">
+                    <span class="value max" style="font-size: 1.5rem;">&#129321</span>
+                </div>
             </div>
-        </div>
-      
-        <textarea maxlength="351" class="note-input"></textarea>
-        <button class="button register">Registrar humor</button>
-        <button class="button historic">Como eu estava me sentindo a um tempo atrás?</button>
+          
+            <textarea maxlength="351" class="note-input"></textarea>
+            <button class="button register">Registrar humor</button>
+            <button class="button historic">Como eu estava me sentindo a um tempo atrás?</button>
+        </section>
+        
     </main>
 
     <script src="js/main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script
+      src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"
+      data-auto-a11y="true"
+    ></script>
 </body>
 </html>

@@ -1,13 +1,18 @@
 body {
     padding: 0 20px;
-    margin: 0;
+    margin: 0 10%;
     box-sizing: border-box;
 }
 
-main {
+p {
+    margin: 0;
+}
+
+.main-section {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 40%;
 }
 
 .title {
@@ -85,5 +90,58 @@ input {
     resize: none;
     font-family: 'Patrick Hand', cursive;
     line-height: 30px;
+}
+
+.previous-notes {
+    width: 300px;
+    height: auto;
+    background: #ddd;
+    border-radius: 10px;
+    position: absolute;
+    right: 2%;
+    margin-top: 20px;
+    display: none;
+}
+
+.close-button {
+    font-size: 1.5rem;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.visible {
+    display: block;
+}
+
+.notes-list {
+    list-style-type: none;
+    margin-top: 40px;
+}
+
+.note-item {
+    background-image: url('../img/note-background.png');
+    background-size: 220px 200px;
+    background-repeat: no-repeat;
+    outline: none;
+    height: 170px;
+    width: 200px;
+    padding: 20px 10px 0 5px;
+    font-size: 1rem;
+    border: none;
+    resize: none;
+    font-family: 'Patrick Hand', cursive;
+    line-height: 20px;
+    margin-bottom: 20px;
+}
+
+.note-item__header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.note-item__date {
+    margin-bottom: 10px;
 }
 
