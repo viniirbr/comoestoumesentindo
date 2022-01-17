@@ -1,6 +1,6 @@
 body {
     padding: 0 20px;
-    margin: 0 10%;
+    margin: 0 10px;
     box-sizing: border-box;
 }
 
@@ -8,16 +8,23 @@ p {
     margin: 0;
 }
 
+main {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row-reverse;
+}
+
 .main-section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 40%;
+    width: 50%;
+    height: calc(100vh - 20px);
 }
 
 .title {
     text-align: center;
-    width: 460px;
+    width: 80%;
 }
 
 .title-main {
@@ -31,7 +38,7 @@ p {
 }
 
 .range {
-    width: 380px;
+    width: 70%;
     background: red;
     border-radius: 10px;
     padding: 30px 15px 0 15px;
@@ -79,7 +86,7 @@ input {
 
 .note-input {
     background-image: url('../img/note-background.png');
-    background-size: 420px 380px;
+    background-size: 415px 360px;
     background-repeat: no-repeat;
     outline: none;
     height: 350px;
@@ -92,32 +99,38 @@ input {
     line-height: 30px;
 }
 
+.main-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
 .previous-notes {
     width: 300px;
     height: auto;
     background: #ddd;
     border-radius: 10px;
-    position: absolute;
-    right: 2%;
     margin-top: 20px;
-    display: none;
+    visibility: hidden;
 }
 
 .close-button {
-    font-size: 1.5rem;
-    position: absolute;
+    position: relative;
+    left: 265px;
     top: 10px;
-    right: 20px;
+    font-size: 1.5rem;
     cursor: pointer;
 }
 
 .visible {
-    display: block;
+    visibility: visible;
 }
 
 .notes-list {
+    display: flex;
+    flex-direction: column;
     list-style-type: none;
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 .note-item {
@@ -141,7 +154,70 @@ input {
     justify-content: space-between;
 }
 
-.note-item__date {
-    margin-bottom: 10px;
+.note-item__datetime {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.note-item__upperright {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.note-item__close {
+    cursor: pointer;
+}
+
+.note-item__value {
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 820px){
+    body {
+        padding: 0;
+    }
+    
+    main {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .main-section {
+        width: 100%;
+        height: calc(100vh - 220px);
+    }
+
+    .title {
+        width: 100%;
+    }
+
+    .previous-notes {
+        width: 90%;        
+    }
+
+    .notes-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .close-button {
+        left: 600px;
+    }
+
+    .range {
+        width: 100%;
+    }
+
+    .note-input {
+        background-size: 380px 320px;
+        height: 257px;
+        width: 370px;
+        padding: 55px 5px 10px 5px;
+        font-size: 1rem;
+        line-height: 30px;
+    }
 }
 

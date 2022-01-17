@@ -6,6 +6,7 @@ const historic = document.querySelector('.historic')
 const previousNotes = document.querySelector('.previous-notes')
 const closeButton = document.querySelector('.close-button')
 
+
 slider.oninput = (()=> {
     var value = slider.value;
     sliderValue.classList.add('show');
@@ -34,14 +35,16 @@ slider.onblur = (()=> {
 
 registerButton.addEventListener('click', ()=> {
     const savedData = JSON.parse(localStorage.getItem('data')) || []
+    const date = moment().format('DD/MM/YYYY')
+    const time = moment().format('hh:mm')
     var value = slider.value;
     noteText = note.value
-    var date = new Date()
-    var today = date.getUTCDate() + "/" + (date.getUTCMonth()+1) + "/" + date.getFullYear()
-    var thisTime = date.getUTCHours();
-    console.log(thisTime)
+    if(note.value == "") {
+        noteText = "Prefiro nem comentar..."
+    }
     var dataForSave = {
-        today,
+        date,
+        time,
         noteText,
         value
     }
@@ -61,7 +64,7 @@ closeButton.addEventListener('click', () => {
 })
 
 
-const Note = ({ today, noteText, value }) => {
+const Note = ({ date, time, noteText, value }) => {
     const noteLi = document.createElement('li')
     noteLi.classList.add('note-item')
     var emoji
@@ -81,8 +84,14 @@ const Note = ({ today, noteText, value }) => {
     emoji = '🤩'
     const content = 
     `<div class="note-item__header">
-    <p class="note-item__date">${today}</p>
-    <p class="note-item__emoji" style="font-size: 1.5rem;">${emoji}</p>
+        <div class="note-item__datetime">
+            <p class="note-item__date">${date}</p>
+            <p class="note-item__time">${time}</p>
+        </div>
+        <div class="note-item__upperright">
+            <p class="note-item__emoji" style="font-size: 1.5rem;">${emoji}</p>
+            <span class="note-item__close"><i class="fas fa-times"></i></span>
+        </div>
     </div>
     <p class="note-item__value" readonly>${noteText}</p>`
     noteLi.innerHTML = content
