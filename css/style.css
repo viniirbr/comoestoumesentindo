@@ -12,14 +12,16 @@ main {
     display: flex;
     justify-content: space-around;
     flex-direction: row-reverse;
+    width: 100%;
 }
 
 .main-section {
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     align-items: center;
     width: 50%;
-    height: calc(100vh - 20px);
+    height: 100vh;
 }
 
 .title {
@@ -39,10 +41,11 @@ main {
 
 .range {
     width: 70%;
+    min-width: 315px;
     background: red;
     border-radius: 10px;
     padding: 30px 15px 0 15px;
-    margin: 20px 0;
+    margin: 20px auto;
     box-sizing: border-box;
 }
 
@@ -86,40 +89,43 @@ input {
 
 .note-input {
     background-image: url('../img/note-background.png');
-    background-size: 415px 360px;
+    background-size: 415px auto;
     background-repeat: no-repeat;
     outline: none;
-    height: 350px;
+    height: 260px;
     width: 370px;
     padding: 60px 40px 0 20px;
     font-size: 1.5rem;
     border: none;
     resize: none;
     font-family: 'Patrick Hand', cursive;
-    line-height: 30px;
+    line-height: 25px;
 }
 
 .main-buttons {
     display: flex;
     align-items: center;
     gap: 10px;
+    margin-top: 20px;
 }
 
 .previous-notes {
-    width: 300px;
-    height: auto;
+    display: flex;
+    flex-direction: column;
+    width: 310px;
+    height: calc(100vh - 20px);
     background: #ddd;
     border-radius: 10px;
     margin-top: 20px;
     visibility: hidden;
+    overflow-y: scroll;
 }
 
 .close-button {
-    position: relative;
-    left: 265px;
-    top: 10px;
+    align-self: flex-end;
     font-size: 1.5rem;
     cursor: pointer;
+    padding: 10px 10px 10px 0;
 }
 
 .visible {
@@ -130,28 +136,28 @@ input {
     display: flex;
     flex-direction: column;
     list-style-type: none;
-    margin-top: 20px;
+    margin-top: 0;
 }
 
 .note-item {
     background-image: url('../img/note-background.png');
-    background-size: 220px 200px;
+    background-size: 255px auto;
     background-repeat: no-repeat;
     outline: none;
-    height: 170px;
-    width: 200px;
-    padding: 20px 10px 0 5px;
-    font-size: 1rem;
+    height: 250px;
+    width: 230px;
+    font-size: 1.2rem;
     border: none;
     resize: none;
     font-family: 'Patrick Hand', cursive;
-    line-height: 20px;
+    line-height: 15px;
     margin-bottom: 20px;
 }
 
 .note-item__header {
     display: flex;
     justify-content: space-between;
+    padding: 30px 10px 10px 10px;
 }
 
 .note-item__datetime {
@@ -171,53 +177,85 @@ input {
 }
 
 .note-item__value {
-    margin-top: 10px;
+    margin: 0;
+    word-wrap: break-word;
+    padding: 0 5px 5px 10px;
 }
 
 @media screen and (max-width: 820px){
     body {
-        padding: 0;
+        padding: 10px;
+        margin: 0;
     }
-    
+
     main {
         flex-direction: column-reverse;
         align-items: center;
+        width: 100%;
     }
 
     .main-section {
         width: 100%;
-        height: calc(100vh - 220px);
-    }
-
-    .title {
-        width: 100%;
     }
 
     .previous-notes {
-        width: 90%;        
+        width: 90%;
     }
 
     .notes-list {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-around;
-    }
-
-    .close-button {
-        left: 600px;
+        padding: 0 20px;
+        gap: 10px;
     }
 
     .range {
+        width: 60%;
+    }
+
+    .previous-notes {
+        height: auto;
+        overflow-y: auto;
+    }
+
+}
+
+@media screen and (max-width: 590px){
+    .main-section {
+        width: 100%;
+    }
+    .title {
+        text-align: center;
         width: 100%;
     }
 
     .note-input {
-        background-size: 380px 320px;
-        height: 257px;
-        width: 370px;
-        padding: 55px 5px 10px 5px;
-        font-size: 1rem;
-        line-height: 30px;
+        background-size: 300px auto;
+        height: 210px;
+        width: 270px;
+        padding: 40px 0 0 20px;
+        font-size: 1.2rem;
+        line-height: 20px;
     }
+
+    .notes-list {
+        gap: 5px;
+    }
+    
+    .note-item {
+        background-size: 224px auto;
+        height: 230px;
+        width: 197px;
+        font-size: 1rem;
+        line-height: 12px;
+        margin-bottom: 20px;
+    }
+    
+    .note-item__datetime {
+        gap: 5px;
+    }
+
+    
 }
 

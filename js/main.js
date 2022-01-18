@@ -101,6 +101,9 @@ const Note = ({ date, time, noteText, value }) => {
 const loadNotes = () => {
     const list = document.querySelector('.notes-list')
     const previousNotes = JSON.parse(localStorage.getItem('data')) || []
+    if (previousNotes == []) {
+        console.log('Não há notas a serem exibidas')
+    }
     list.innerHTML=""
     previousNotes.forEach((note)=>{
         list.appendChild(Note(note))
