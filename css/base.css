@@ -38,3 +38,13 @@ p {
 .button:hover {
     background: #0277b7;
 }
+
+.toast {
+    position: absolute; 
+    top: 30px; 
+    right: 30%; 
+    width: 200px;
+    border-radius: 10px;
+    text-align: center;
+    font-family: 'Comfortaa', cursive;
+}
