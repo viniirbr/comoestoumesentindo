@@ -5,7 +5,14 @@ const note = document.querySelector('.note-input')
 const historic = document.querySelector('.historic')
 const previousNotes = document.querySelector('.previous-notes')
 const closeButton = document.querySelector('.close-button')
-const noteDelete = document.querySelector('.note-delete')
+//const deleteNote = document.querySelector('.note-delete')
+
+const DeleteButton = (id) => { 
+    const deleteButton = document.createElement('button')
+    deleteButton.classList.add('note-delete')
+    deleteButton.addEventListener('click', ()=> deleteNote(id)) 
+    return deleteButton
+}
 
 slider.oninput = (()=> {
     var value = slider.value;
@@ -65,7 +72,7 @@ closeButton.addEventListener('click', () => {
 })
 
 
-const Note = ({ date, time, noteText, value }) => {
+const Note = ({ date, time, noteText, value }, id) => {
     const noteLi = document.createElement('li')
     noteLi.classList.add('note-item')
     var emoji
@@ -91,11 +98,12 @@ const Note = ({ date, time, noteText, value }) => {
         </div>
         <div class="note-item__upperright">
             <p class="note-item__emoji" style="font-size: 1.5rem;">${emoji}</p>
-            <span class="note-delete"><i class="fas fa-times"></i></span>
+            <span class="note-delete" onclick='deleteNote(${id})'><i class="fas fa-times"></i></span>
         </div>
     </div>
     <p class="note-item__value" readonly>${noteText}</p>`
     noteLi.innerHTML = content
+    //noteLi.appendChild(DeleteButton(id))
     return noteLi
 }
 
@@ -107,14 +115,18 @@ const loadNotes = () => {
     }
     list.innerHTML=""
     previousNotes.forEach((note, id)=>{
-        list.appendChild(Note(note))
-        console.log(id)
-    })
-    noteDelete.addEventListener('click', (id) => {
-        const savedNotes = JSON.parse(localStorage.getItem('data'))
-        savedNotes.splice(id,1)
+        list.appendChild(Note(note, id))
     })
 }
+
+const deleteNote = (id) => {
+    console.log(id)
+    const savedNotes = JSON.parse(localStorage.getItem('data'))
+    savedNotes.splice(id, 1)
+    localStorage.setItem('data', JSON.stringify(savedNotes))
+    loadNotes()
+}
+
 
 
 
